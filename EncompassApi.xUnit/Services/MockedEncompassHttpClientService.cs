@@ -10,9 +10,25 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Faker;
 
 namespace EncompassApi.xUnit.Services
 {
+    public interface IMockedEncompassHttpClientService
+    {
+        Uri BaseAddress { get; }
+        IHttpClientFactory HttpFactory { get; }
+        HttpClient MockedClient { get; }
+        EncompassApiService MockedEncompassClient { get; }
+        Mock<HttpMessageHandler> MockedHandler { get; }
+
+        IMockedEncompassHttpClientService SetupResponseMessage(Action<HttpResponseMessage> action, KeyValuePair<string, string>? testHeader = null);
+        IMockedEncompassHttpClientService SetOptions(Action<Mock<IHttpClientOptions>> options);
+        IMockedEncompassHttpClientService SetOptions(Mock<IHttpClientOptions> options);
+        IMockedEncompassHttpClientService AddDefaultRequestHeaders();
+
+        Webhook.Webhook SetWebhookApiResponseCallback(EventHandler<ApiResponseEventArgs> action);
+    }
     public class MockedEncompassHttpClientService : IMockedEncompassHttpClientService
     {
         private readonly ILogger<MockedEncompassHttpClientService> _logger;
@@ -51,7 +67,7 @@ namespace EncompassApi.xUnit.Services
             MockedHandler = new Mock<HttpMessageHandler>();
             HttpFactory = MockedHandler.CreateClientFactory();
             MockedClient = HttpFactory.CreateClient("EncompassClient");
-            BaseAddress = new Uri(Faker.Internet.Url());
+            BaseAddress = new Uri("https://www.example.com/api"); 
             MockedClient.BaseAddress = BaseAddress;
             MockedEncompassClient = new EncompassApiService(MockedClient, new ClientParameters());
         }
