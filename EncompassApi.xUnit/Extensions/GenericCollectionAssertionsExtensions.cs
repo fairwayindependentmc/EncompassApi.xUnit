@@ -38,8 +38,6 @@ namespace EncompassApi.xUnit.Extensions
 
     
 
-
-
         public static IEnumerable<TObject> BeSerializable<TAssertion, TObject>(this GenericCollectionAssertions<TAssertion> assert, IEnumerable<JObject> payloads)
         {
             // THIS COULD BE REFINED MORE
@@ -62,6 +60,8 @@ namespace EncompassApi.xUnit.Extensions
             assert.Should().NotBeNull(because: "payloads must not be null");
             return list;
         }
+
+       
 
         public static AndConstraint<GenericCollectionAssertions<TAssertion>> BeOfType<TAssertion>(this GenericCollectionAssertions<TAssertion> assert)
         {
