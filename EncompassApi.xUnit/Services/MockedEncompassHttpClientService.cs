@@ -27,7 +27,7 @@ namespace EncompassApi.xUnit.Services
         IMockedEncompassHttpClientService AddDefaultRequestHeaders();
         IMockedEncompassHttpClientService SetupResponseMessage(Action<HttpResponseMessage> action, Action callBack, KeyValuePair<string, string>? testHeader = null);
         IMockedEncompassHttpClientService SetupResponseMessage(Action<HttpResponseMessage> action, KeyValuePair<string, string>? testHeader = null);
-
+        MockedEncompassHttpClientService SetClientApiResponse(EventHandler<ApiResponseEventArgs> callBack);
         Webhook.Webhook SetWebhookApiResponseCallback(EventHandler<ApiResponseEventArgs> action);
         EncompassApi.Loans.Documents.LoanDocuments SetDocumentsApiResponseCallback(string mockedLoanId, EventHandler<ApiResponseEventArgs> action);
     }
@@ -96,6 +96,12 @@ namespace EncompassApi.xUnit.Services
         public IMockedEncompassHttpClientService SetupResponseMessage(Action<HttpResponseMessage> action, KeyValuePair<string, string>? testHeader = null)
             => SetupResponseMessage(action, null, testHeader);
 
+        public MockedEncompassHttpClientService SetClientApiResponse(EventHandler<ApiResponseEventArgs> callBack)
+        {
+            if (callBack != null)
+                MockedEncompassClient.ApiResponse += callBack;
+            return this;
+        }
         public Webhook.Webhook SetWebhookApiResponseCallback(EventHandler<ApiResponseEventArgs> action)
         {
             _logger?.LogInformation("Attaching a Response callback and returning Webhook object.");
