@@ -3,19 +3,19 @@ xUnit test library for testing EncompassApi
 # Why does this exist?
 To facilitate testing projects that reference EncompassApi.
 # Get Started
-Refernces:
+EncompassApi.xUnit.Sample project provides a sample test
+## Startup file:
+![image](https://user-images.githubusercontent.com/79709750/117076940-dded8900-acfc-11eb-8f6e-16b30d1b159d.png)
 
-![image](https://user-images.githubusercontent.com/79709750/117072057-8861ae00-acf5-11eb-90f4-11bf9a399dca.png)
+## Refernces:
+![image](https://user-images.githubusercontent.com/79709750/117076860-bf878d80-acfc-11eb-9b6a-2309eae2f2e2.png)
 
-Startup file:
-Add MockedEncompassHttpClient
+## Constructor
+![image](https://user-images.githubusercontent.com/79709750/117077186-40df2000-acfd-11eb-9ec9-7dafc64f7468.png)
 
-![image](https://user-images.githubusercontent.com/79709750/117072299-d8d90b80-acf5-11eb-8b0a-da3e71985ccf.png)
+## Sample test code
+![image](https://user-images.githubusercontent.com/79709750/117077212-4ccae200-acfd-11eb-8048-da32be861c6e.png)
 
-Sample test file:
-
-Constructor:
-![image](https://user-images.githubusercontent.com/79709750/117072647-6288d900-acf6-11eb-8e47-a347a8ed77a1.png)
 
 
 # Upcoming features
