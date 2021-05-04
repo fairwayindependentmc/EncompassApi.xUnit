@@ -19,12 +19,6 @@ namespace EncompassApi.xUnit.Payloads
                 ? fullPath
                 : Directory.GetCurrentDirectory() + "/" + fullPath;
             Assert.True(File.Exists(path), $"FIle {fileName}.json doesn't exist!");
-            //if (!File.Exists(path))
-            //{
-                
-            //    throw new ArgumentException($"Could not find file at path: {path}");
-            //}
-            // Load the file
             var fileData = File.ReadAllText(fullPath);
             return JsonConvert.DeserializeObject<JObject[]>(fileData);
         }
@@ -41,12 +35,6 @@ namespace EncompassApi.xUnit.Payloads
                 ? fullPath
                 : Directory.GetCurrentDirectory() + "/" + fullPath;
             Assert.True(File.Exists(path), $"FIle {fileName}.json doesn't exist!");
-
-            //if (!File.Exists(path))
-            //{
-            //    throw new ArgumentException($"Could not find file at path: {path}");
-            //}
-            // Load the file
             var fileData = File.ReadAllText(fullPath);
             var objs = JsonConvert.DeserializeObject<JObject[]>(fileData);
             return objs[0];
