@@ -22,10 +22,11 @@ namespace EncompassApi.xUnit.Services
         EncompassApiService MockedEncompassClient { get; }
         Mock<HttpMessageHandler> MockedHandler { get; }
 
-        IMockedEncompassHttpClientService SetupResponseMessage(Action<HttpResponseMessage> action, KeyValuePair<string, string>? testHeader = null);
         IMockedEncompassHttpClientService SetOptions(Action<Mock<IHttpClientOptions>> options);
         IMockedEncompassHttpClientService SetOptions(Mock<IHttpClientOptions> options);
         IMockedEncompassHttpClientService AddDefaultRequestHeaders();
+        IMockedEncompassHttpClientService SetupResponseMessage(Action<HttpResponseMessage> action, Action callBack, KeyValuePair<string, string>? testHeader = null);
+        IMockedEncompassHttpClientService SetupResponseMessage(Action<HttpResponseMessage> action, KeyValuePair<string, string>? testHeader = null);
 
         Webhook.Webhook SetWebhookApiResponseCallback(EventHandler<ApiResponseEventArgs> action);
         EncompassApi.Loans.Documents.LoanDocuments SetDocumentsApiResponseCallback(string mockedLoanId, EventHandler<ApiResponseEventArgs> action);
@@ -73,50 +74,45 @@ namespace EncompassApi.xUnit.Services
             MockedEncompassClient = new EncompassApiService(MockedClient, new ClientParameters());
         }
 
-        private void _mockedEncompassClient_ApiResponse(object sender, ApiResponseEventArgs e)
+        public IMockedEncompassHttpClientService SetupResponseMessage(Action<HttpResponseMessage> action, Action callBack, KeyValuePair<string, string>? testHeader = null)
         {
-            if (MockedEncompassClient_ApiResponse != null)
-                MockedEncompassClient_ApiResponse(sender, e);
-        }
-
-
-
-        public IMockedEncompassHttpClientService SetupResponseMessage(Action<HttpResponseMessage> action, KeyValuePair<string, string>? testHeader = null)
-        {
+            _logger?.LogInformation("Setup a response message for testing.");
             var respMsg = new HttpResponseMessage();
             action(respMsg);
 
             if (testHeader.HasValue)
                 respMsg.Headers.Add(testHeader.Value.Key, testHeader.Value.Value);
 
-            MockedHandler.Protected().Setup<Task<HttpResponseMessage>>(
+            var returnsResult = MockedHandler.Protected().Setup<Task<HttpResponseMessage>>(
             "SendAsync",
                 ItExpr.IsAny<HttpRequestMessage>(),
                 ItExpr.IsAny<CancellationToken>())
                 .ReturnsAsync(respMsg);
+            if(callBack != null)
+                returnsResult.Callback(callBack);
             return this;
         }
 
-        public EncompassApi.Webhook.Webhook SetWebhookApiResponseCallback(EventHandler<ApiResponseEventArgs> action)
+        public IMockedEncompassHttpClientService SetupResponseMessage(Action<HttpResponseMessage> action, KeyValuePair<string, string>? testHeader = null)
+            => SetupResponseMessage(action, null, testHeader);
+
+        public Webhook.Webhook SetWebhookApiResponseCallback(EventHandler<ApiResponseEventArgs> action)
         {
+            _logger?.LogInformation("Attaching a Response callback and returning Webhook object.");
+
             MockedEncompassClient.Webhook.ApiResponseEventHandler += action;
             return MockedEncompassClient.Webhook;
         }
 
-        public void SetLoansApiResponseCallBack(EventHandler<ApiResponseEventArgs> action)
+        public Loans.Documents.LoanDocuments SetDocumentsApiResponseCallback(string mockedLoanId, EventHandler<ApiResponseEventArgs> action)
         {
-            MockedEncompassClient.Loans.ApiResponseEventHandler += action;
-        }
+            _logger?.LogInformation("Attaching a Response callback and returning LoanDocuments object.");
 
-        public EncompassApi.Loans.Documents.LoanDocuments SetDocumentsApiResponseCallback(string mockedLoanId, EventHandler<ApiResponseEventArgs> action)
-        {
             var docs = MockedEncompassClient.Loans.GetLoanApis(mockedLoanId).Documents;
             docs.ApiResponseEventHandler += action;
             return docs;
 
         }
-
-        public event EventHandler<ApiResponseEventArgs> MockedEncompassClient_ApiResponse;
 
     }
 }
