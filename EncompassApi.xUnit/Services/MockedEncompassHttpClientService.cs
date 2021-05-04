@@ -28,6 +28,7 @@ namespace EncompassApi.xUnit.Services
         IMockedEncompassHttpClientService AddDefaultRequestHeaders();
 
         Webhook.Webhook SetWebhookApiResponseCallback(EventHandler<ApiResponseEventArgs> action);
+        EncompassApi.Loans.Documents.LoanDocuments SetDocumentsApiResponseCallback(string mockedLoanId, EventHandler<ApiResponseEventArgs> action);
     }
     public class MockedEncompassHttpClientService : IMockedEncompassHttpClientService
     {
@@ -102,6 +103,18 @@ namespace EncompassApi.xUnit.Services
             return MockedEncompassClient.Webhook;
         }
 
+        public void SetLoansApiResponseCallBack(EventHandler<ApiResponseEventArgs> action)
+        {
+            MockedEncompassClient.Loans.ApiResponseEventHandler += action;
+        }
+
+        public EncompassApi.Loans.Documents.LoanDocuments SetDocumentsApiResponseCallback(string mockedLoanId, EventHandler<ApiResponseEventArgs> action)
+        {
+            var docs = MockedEncompassClient.Loans.GetLoanApis(mockedLoanId).Documents;
+            docs.ApiResponseEventHandler += action;
+            return docs;
+
+        }
 
         public event EventHandler<ApiResponseEventArgs> MockedEncompassClient_ApiResponse;
 
