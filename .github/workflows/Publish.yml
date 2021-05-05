@@ -27,7 +27,7 @@ jobs:
       id: gitversion
       uses: gittools/actions/gitversion/execute@v0.9.9
       with:
-        targetPath: src/EncompassApi
+        targetPath: EncompassApi.xUnit
         useConfigFile: true
         updateAssemblyInfo: true
 
