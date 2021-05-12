@@ -45,7 +45,7 @@ jobs:
       run: dotnet build -c $env:CONFIGURATION -p:Version=${{ steps.gitversion.outputs.MajorMinorPatch }} -p:PackageVersion=${{ steps.gitversion.outputs.NuGetVersionV2 }} --version-suffix ${{ steps.gitversion.outputs.PreReleaseTag }} EncompassApi.xUnit/EncompassApi.xUnit.csproj
 
     - name: Create NuGet Spec
-      run: nuget spec EncompassApi.xUnit
+      run: nuget spec EncompassApi.xUnit/bin/Release
       
     - name : Create NuGet Pack
       run: nuget pack EncompassApi.xUnit/bin/Release
