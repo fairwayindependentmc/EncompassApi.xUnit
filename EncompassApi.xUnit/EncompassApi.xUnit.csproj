@@ -3,6 +3,10 @@
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
 	  <LangVersion>8.0</LangVersion>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <Company>Fairway Mortgage</Company>
+	  <Authors>Michael Seifi</Authors>
+	  <PackageProjectUrl>https://github.com/fairwayindependentmc/EncompassApi.xUnit</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
