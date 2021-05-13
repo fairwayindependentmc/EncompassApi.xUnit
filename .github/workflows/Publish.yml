@@ -13,8 +13,8 @@ jobs:
     env:
       CONFIGURATION: Release
       MajorMinor: '1.2' # Manually adjust the version number as needed for semantic versioning. Revision is auto-incremented.
-      Revision: $[counter(MajorMinor)], 0)]
-      versionNumber: '$(MajorMinor).$(Revision)'
+      Revision: $[counter(env.MajorMinor)], 0)]
+      versionNumber: '$(env.MajorMinor).$(env.Revision)'
   
     steps:
     - name: Checkout Code
