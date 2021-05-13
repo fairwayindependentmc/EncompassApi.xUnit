@@ -12,6 +12,8 @@ jobs:
     runs-on: windows-latest
     env:
       CONFIGURATION: Release
+      
+    variables:
       version.MajorMinor: '1.2' # Manually adjust the version number as needed for semantic versioning. Revision is auto-incremented.
       version.Revision: $[counter(variables['version.MajorMinor'], 0)]
       versionNumber: '$(version.MajorMinor).$(version.Revision)'
@@ -52,7 +54,7 @@ jobs:
       run: Nuget spec EncompassApi.xUnit
       
     - name: Nuget pack
-      run: Nuget pack -IncludeReferencedProjects -Version ${{ env.versionNumber }} -OutputDirectory EncompassApi.xUnit/bin/Release/netstandard2.0
+      run: Nuget pack -IncludeReferencedProjects -Version ${{ variables.versionNumber }} -OutputDirectory EncompassApi.xUnit/bin/Release/netstandard2.0
 
     - name: Push NuGet Package
       run: dotnet nuget push --no-symbols --skip-duplicates --api-key ${{ secrets.NUGET_API_KEY }} "EncompassApi.xUnit/bin/Release/**/*.nupkg"
