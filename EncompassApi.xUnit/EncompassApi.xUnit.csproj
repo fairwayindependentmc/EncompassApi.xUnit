@@ -2,12 +2,16 @@
 
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
-	  <LangVersion>8.0</LangVersion>
+	  <LangVersion>latest</LangVersion>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	  <PublishRepositoryUrl>True</PublishRepositoryUrl>
 	  <Company>Fairway Mortgage</Company>
 	  <Authors>Michael Seifi</Authors>
 	  <Description>A xUnit library</Description>
 	  <PackageProjectUrl>https://github.com/fairwayindependentmc/EncompassApi.xUnit</PackageProjectUrl>
+	  <Summary>EncompassAPI.xUnit Library for .NET</Summary>
+	  <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
   <ItemGroup>
