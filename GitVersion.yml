@@ -1,4 +1,8 @@
+next-version: 1.0
+assembly-versioning-scheme: MajorMinorPatch
+assembly-file-versioning-scheme: MajorMinorPatchTag
 mode: ContinuousDeployment
+increment: Inherit
 branches: {}
 ignore:
   sha: []
