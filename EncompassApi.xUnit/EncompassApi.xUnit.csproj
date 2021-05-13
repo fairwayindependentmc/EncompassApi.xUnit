@@ -2,6 +2,8 @@
 
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
+	  <PackageId>EncompassApiXunit</PackageId>
+	  <Version>1.4.3.0</Version>
 	  <LangVersion>latest</LangVersion>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
