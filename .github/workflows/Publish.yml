@@ -48,7 +48,7 @@ jobs:
       run: Nuget spec EncompassApi.xUnit
       
     - name: Nuget pack
-      run: Nuget pack -OutputDirectory EncompassApi.xUnit/bin/Release/netstandard2.0
+      run: Nuget pack -Version ${{ steps.gitversion.outputs.NuGetVersionV2 }} -Suffix ${{ steps.gitversion.outputs.PreReleaseTag }} -OutputDirectory EncompassApi.xUnit/bin/Release/netstandard2.0
 
     - name: Push NuGet Package
       run: dotnet nuget push --no-symbols --skip-duplicates --api-key ${{ secrets.NUGET_API_KEY }} "EncompassApi.xUnit/bin/Release/**/*.nupkg"
