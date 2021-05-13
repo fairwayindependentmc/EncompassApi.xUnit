@@ -12,11 +12,9 @@ jobs:
     runs-on: windows-latest
     env:
       CONFIGURATION: Release
-      
-    variables:
-      version.MajorMinor: '1.2' # Manually adjust the version number as needed for semantic versioning. Revision is auto-incremented.
-      version.Revision: $[counter(variables['version.MajorMinor'], 0)]
-      versionNumber: '$(version.MajorMinor).$(version.Revision)'
+      MajorMinor: '1.2' # Manually adjust the version number as needed for semantic versioning. Revision is auto-incremented.
+      Revision: $[counter(MajorMinor)], 0)]
+      versionNumber: '$(MajorMinor).$(Revision)'
   
     steps:
     - name: Checkout Code
