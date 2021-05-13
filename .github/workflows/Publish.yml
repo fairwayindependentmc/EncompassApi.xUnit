@@ -12,6 +12,10 @@ jobs:
     runs-on: windows-latest
     env:
       CONFIGURATION: Release
+      version.MajorMinor: '1.2' # Manually adjust the version number as needed for semantic versioning. Revision is auto-incremented.
+      version.Revision: $[counter(variables['version.MajorMinor'], 0)]
+      versionNumber: '$(version.MajorMinor).$(version.Revision)'
+  
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
@@ -25,7 +29,7 @@ jobs:
 
     - name: Calculate Version
       id: gitversion
-      uses: gittools/actions/gitversion/execute@v1.9.9
+      uses: gittools/actions/gitversion/execute@v0.9.9
       with:
         targetPath: EncompassApi.xUnit
         useConfigFile: true
@@ -48,7 +52,7 @@ jobs:
       run: Nuget spec EncompassApi.xUnit
       
     - name: Nuget pack
-      run: Nuget pack -IncludeReferencedProjects -Version ${{ steps.gitversion.outputs.NuGetVersionV2 }} -OutputDirectory EncompassApi.xUnit/bin/Release/netstandard2.0
+      run: Nuget pack -IncludeReferencedProjects -Version ${{ env.versionNumber }} -OutputDirectory EncompassApi.xUnit/bin/Release/netstandard2.0
 
     - name: Push NuGet Package
       run: dotnet nuget push --no-symbols --skip-duplicates --api-key ${{ secrets.NUGET_API_KEY }} "EncompassApi.xUnit/bin/Release/**/*.nupkg"
