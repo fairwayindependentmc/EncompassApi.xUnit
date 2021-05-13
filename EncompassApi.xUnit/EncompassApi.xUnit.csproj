@@ -9,6 +9,7 @@
 	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
 	  <PublishRepositoryUrl>True</PublishRepositoryUrl>
 	  <Company>Fairway Mortgage</Company>
+	  
 	  <Authors>Michael Seifi</Authors>
 	  <Description>A xUnit library</Description>
 	  <PackageProjectUrl>https://github.com/fairwayindependentmc/EncompassApi.xUnit</PackageProjectUrl>
