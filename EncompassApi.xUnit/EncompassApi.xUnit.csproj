@@ -6,6 +6,7 @@
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	  <Company>Fairway Mortgage</Company>
 	  <Authors>Michael Seifi</Authors>
+	  <Description>A xUnit library</Description>
 	  <PackageProjectUrl>https://github.com/fairwayindependentmc/EncompassApi.xUnit</PackageProjectUrl>
   </PropertyGroup>
 
