@@ -14,8 +14,7 @@ jobs:
       CONFIGURATION: Release
 
     variables:
-    - name: Authors
-      value: Michael Seifi
+      Authors: Michael Seifi
   
     steps:
     - name: Checkout Code
