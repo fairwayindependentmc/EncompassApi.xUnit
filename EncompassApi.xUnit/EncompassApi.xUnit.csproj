@@ -3,16 +3,17 @@
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
 	  <PackageId>EncompassApiXunit</PackageId>
-	  <Version>1.4.3.0</Version>
+	  <Version>1.1.0.1</Version>
 	  <LangVersion>latest</LangVersion>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	  <RepositoryUrl>https://github.com/fairwayindependentmc/EncompassApi.xUnit</RepositoryUrl>
 	  <PublishRepositoryUrl>True</PublishRepositoryUrl>
-	  <Company>Fairway Mortgage</Company>
+	  <Company>FairwayIndependentMortgageCorporation</Company>
+	  <RepositoryType>Github</RepositoryType>
 	  
 	  <Authors>Michael Seifi</Authors>
 	  <Description>A xUnit library</Description>
-	  <PackageProjectUrl>https://github.com/fairwayindependentmc/EncompassApi.xUnit</PackageProjectUrl>
 	  <Summary>EncompassAPI.xUnit Library for .NET</Summary>
 	  <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
