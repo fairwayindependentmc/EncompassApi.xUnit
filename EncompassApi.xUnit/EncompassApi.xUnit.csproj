@@ -8,6 +8,7 @@
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
 	  <RepositoryUrl>https://github.com/fairwayindependentmc/EncompassApi.xUnit</RepositoryUrl>
+	  <ProjectUrl>https://github.com/fairwayindependentmc/EncompassApi.xUnit</ProjectUrl>
 	  <PublishRepositoryUrl>True</PublishRepositoryUrl>
 	  <Company>FairwayIndependentMortgageCorporation</Company>
 	  <RepositoryType>Github</RepositoryType>
