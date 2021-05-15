@@ -11,8 +11,7 @@
 	  <PublishRepositoryUrl>True</PublishRepositoryUrl>
 	  <Company>FairwayIndependentMortgageCorporation</Company>
 	  <RepositoryType>Github</RepositoryType>
-	  
-	  <Authors>Michael Seifi</Authors>
+	  <Authors>Michael Seifi, Fairway Mortgage DevOp team</Authors>
 	  <Description>A xUnit library</Description>
 	  <Summary>EncompassAPI.xUnit Library for .NET</Summary>
 	  <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
