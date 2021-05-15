@@ -3,7 +3,7 @@ assembly-versioning-scheme: MajorMinorPatch
 assembly-file-versioning-scheme: MajorMinorPatchTag
 mode: ContinuousDelivery
 increment: Inherit
-minor-version-bump-message: '\+minor'
+minor-version-bump-message: '\+(minor|feature)'
 branches: {}
 ignore:
   sha: []
