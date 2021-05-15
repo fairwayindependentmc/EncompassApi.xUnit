@@ -46,8 +46,7 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
 
-    - name: Restore NuGet Packages
-      run: dotnet restore EncompassApi.xUnit/EncompassApi.xUnit.csproj
+   
 
     - name: Build Solution
       run: dotnet build -c $env:CONFIGURATION -p:Version=${{ steps.gitversion.outputs.MajorMinorPatch }} -p:PackageVersion=${{ steps.gitversion.outputs.NuGetVersionV2 }} --version-suffix ${{ steps.gitversion.outputs.PreReleaseTag }} EncompassApi.xUnit/EncompassApi.xUnit.csproj
