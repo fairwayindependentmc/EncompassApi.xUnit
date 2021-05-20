@@ -1,4 +1,4 @@
-
+#comment out to bump to next release version
 #next-version: 2.0
 assembly-versioning-scheme: MajorMinorPatch
 assembly-file-versioning-scheme: MajorMinorPatchTag
