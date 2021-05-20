@@ -84,5 +84,5 @@ branches:
     is-release-branch: false  
 ignore:
   sha: []
-  commits-before: yyyy-MM-ddTHH:mm:ss
+  commits-before: 2012-05-20T10:00:00
 merge-message-formats: {}
