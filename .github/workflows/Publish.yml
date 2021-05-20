@@ -4,7 +4,6 @@ on:
     workflows: ['CI']
     branches:
       - master
-      - feature/*
     types:
       - completed
 
