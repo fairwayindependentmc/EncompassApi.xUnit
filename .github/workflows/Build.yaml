@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - master
-      - feature/*
 
 jobs:
   build:
@@ -37,9 +36,3 @@ jobs:
 
     - name: Build Solution
       run: dotnet build -c $env:CONFIGURATION -p:Version=${{ steps.gitversion.outputs.MajorMinorPatch }} -p:PackageVersion=${{ steps.gitversion.outputs.NuGetVersionV2 }} --version-suffix ${{ steps.gitversion.outputs.PreReleaseTag }} EncompassApi.xUnit/EncompassApi.xUnit.csproj
-
-    - name: Nuget Spec
-      run: Nuget spec EncompassApi.xUnit
-      
-    - name: Nuget pack
-      run: Nuget pack -IncludeReferencedProjects  -Version ${{ steps.gitversion.outputs.SemVer }} -OutputDirectory EncompassApi.xUnit/bin/Release/netstandard2.0
