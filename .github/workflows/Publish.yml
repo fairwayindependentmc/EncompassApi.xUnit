@@ -52,7 +52,7 @@ jobs:
       run: dotnet build -c $env:CONFIGURATION -p:Version=${{ steps.gitversion.outputs.MajorMinorPatch }} -p:PackageVersion=${{ steps.gitversion.outputs.NuGetVersionV2 }} --version-suffix ${{ steps.gitversion.outputs.PreReleaseTag }} EncompassApi.xUnit/EncompassApi.xUnit.csproj
 
     - name: Nuget pack
-      run: dotnet pack  -Version ${{ steps.gitversion.outputs.NuGetVersionV2 }}  --output EncompassApi.xUnit/bin/Release/netstandard2.0 -p:PackageVersion=${{ steps.gitversion.outputs.NuGetVersionV2 }}
+      run: Nuget pack -IncludeReferencedProjects  -Version ${{ steps.gitversion.outputs.NuGetVersionV2 }} -OutputDirectory EncompassApi.xUnit/bin/Release/netstandard2.0
       
     - name: Push NuGet Package
       run: dotnet nuget push --no-symbols --skip-duplicates --api-key ${{ secrets.NUGET_API_KEY }} "EncompassApi.xUnit/bin/Release/**/*.nupkg"
