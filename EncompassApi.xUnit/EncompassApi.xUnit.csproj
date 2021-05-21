@@ -1,16 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
 	  <PackageId>EncompassApiXunit</PackageId>
-	  <Version>1.1.0.1</Version>
+	  <Version>1.1.0.2</Version>
 	  <LangVersion>latest</LangVersion>
-	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <Title>EncompassApi.xUnit</Title>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
 	  <RepositoryUrl>https://github.com/fairwayindependentmc/EncompassApi.xUnit</RepositoryUrl>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <PackageTags>encompassrest api client xUnit</PackageTags>
 	  <ProjectUrl>https://github.com/fairwayindependentmc/EncompassApi.xUnit</ProjectUrl>
 	  <PublishRepositoryUrl>True</PublishRepositoryUrl>
 	  <Company>FairwayIndependentMortgageCorporation</Company>
+	  <Configurations>Debug;Release;CI</Configurations>
 	  <RepositoryType>Github</RepositoryType>
 	  <Authors>Michael Seifi, Fairway Mortgage DevOp team</Authors>
 	  <Description>A xUnit library</Description>
@@ -18,9 +22,13 @@
 	  <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+
   <ItemGroup>
 	<PackageReference Include="EncompassApi" Version="1.6.2-ci0132" />
-	<PackageReference Include="Faker.Net" Version="1.5.136" />
+	<PackageReference Include="Faker.Net" Version="1.5.138" />
 	<PackageReference Include="FluentAssertions" Version="5.10.3" />
 	<PackageReference Include="FluentAssertions.Json" Version="5.5.0" />
 	<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.14" />
@@ -31,7 +39,7 @@
 	<PackageReference Include="xunit.analyzers" Version="0.10.0" />
 	<PackageReference Include="xunit.assert" Version="2.4.1" />
 	<PackageReference Include="Xunit.DependencyInjection" Version="7.2.0" />
-	<PackageReference Include="Xunit.DependencyInjection.Demystifier" Version="2.0.0" />
+	<PackageReference Include="Xunit.DependencyInjection.Demystifier" Version="2.1.0" />
 	<PackageReference Include="Xunit.DependencyInjection.Logging" Version="2.1.0" />
   </ItemGroup>
 

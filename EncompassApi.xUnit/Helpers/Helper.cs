@@ -6,7 +6,7 @@ using System.IO;
 using System.Text;
 using Xunit;
 
-namespace EncompassApi.xUnit.Payloads
+namespace EncompassApi.xUnit
 {
     public static class Helper
     {
