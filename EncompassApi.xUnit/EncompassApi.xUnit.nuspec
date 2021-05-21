@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>EncompassApi.xUnit</id>
-    <version>1.0.0.0</version>
+    <version>$Version$</version>
     <title>EncompassApi.xUnit</title>
     <authors>Michael Seifi, Fairway Mortgage DevOp team</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -14,8 +14,8 @@
     <copyright>Copyright ©2021 Contoso Corporation</copyright>
     <tags>EncompassrestApi client xUnit</tags>
 	<dependencies>
-		<dependency id="EncompassApi" Version="1.6.2-ci0132" />
-		<dependency id="Faker.Net" Version="1.5.136" />
+		<dependency id="EncompassApi" version="1.6.2-ci0132" />
+		<dependency id="Faker.Net" version="1.5.136" />
 	</dependencies>
   </metadata>
 </package>
