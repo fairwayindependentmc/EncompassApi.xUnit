@@ -28,7 +28,7 @@
 
   <ItemGroup>
 	<PackageReference Include="EncompassApi" Version="1.6.2-ci0132" />
-	<PackageReference Include="Faker.Net" Version="1.5.136" />
+	<PackageReference Include="Faker.Net" Version="1.5.138" />
 	<PackageReference Include="FluentAssertions" Version="5.10.3" />
 	<PackageReference Include="FluentAssertions.Json" Version="5.5.0" />
 	<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.14" />
@@ -39,7 +39,7 @@
 	<PackageReference Include="xunit.analyzers" Version="0.10.0" />
 	<PackageReference Include="xunit.assert" Version="2.4.1" />
 	<PackageReference Include="Xunit.DependencyInjection" Version="7.2.0" />
-	<PackageReference Include="Xunit.DependencyInjection.Demystifier" Version="2.0.0" />
+	<PackageReference Include="Xunit.DependencyInjection.Demystifier" Version="2.1.0" />
 	<PackageReference Include="Xunit.DependencyInjection.Logging" Version="2.1.0" />
   </ItemGroup>
 
